@@ -1,8 +1,13 @@
 import React from "react";
-import { View } from "react-native";
 
 import { Container, Button, Text, Box } from "../../components";
+import TextInput from "../components/Forms/TextInput";
 import SocialLogin from "../components/SocialLogin";
+
+const emailValidator = (email: string) => {
+  ///^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  email;
+};
 
 const Login = () => {
   const footer = (
@@ -24,7 +29,24 @@ const Login = () => {
   );
   return (
     <Container {...{ footer }}>
-      <View />
+      <Box padding="xl">
+        <Text variant="title1" textAlign="center">
+          Welcome back
+        </Text>
+        <Text variant="body" textAlign="center">
+          Use your credentials below and login to your account
+        </Text>
+        <TextInput
+          icon="mail"
+          placeholder="Enter your Email"
+          validator={emailValidator}
+        />
+        <TextInput
+          icon="lock"
+          placeholder="Enter your Password"
+          validator={emailValidator}
+        />
+      </Box>
     </Container>
   );
 };

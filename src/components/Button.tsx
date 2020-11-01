@@ -29,8 +29,8 @@ const Button = ({ label, onPress, variant, children }: ButtonProps) => {
     variant === "primary"
       ? theme.colors.primary
       : variant === "transparent"
-        ? "transparent"
-        : theme.colors.grey;
+      ? "transparent"
+      : theme.colors.grey;
   const color =
     variant === "primary" ? theme.colors.white : theme.colors.secondary;
   return (
@@ -41,10 +41,10 @@ const Button = ({ label, onPress, variant, children }: ButtonProps) => {
       {children ? (
         children
       ) : (
-          <Text variant="button" style={{ color }}>
-            {label}
-          </Text>
-        )}
+        <Text variant="button" style={{ color }}>
+          {label}
+        </Text>
+      )}
     </RectButton>
   );
 };
