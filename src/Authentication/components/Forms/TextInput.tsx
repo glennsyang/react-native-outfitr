@@ -1,50 +1,55 @@
-/* eslint-disable no-nested-ternary */
-import React, { useState } from "react";
-import { TextInput as RNTextInput } from "react-native";
+import React from "react";
+import {
+  TextInput as RNTextInput,
+  StyleSheet,
+  TextInputProps as RNTextInputProps,
+} from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 
 import { Box, theme } from "../../../components";
 
-interface TextInputProps {
-  placeholder: string;
+interface TextInputProps extends RNTextInputProps {
   icon: string;
-  validator: (input: string) => boolean;
+  touched?: boolean;
+  error?: string;
 }
 
 const SIZE = theme.borderRadii.m * 2;
-const Valid = true;
-const Invalid = false;
-const Pristine = null;
-type InputState = typeof Valid | typeof Invalid | typeof Pristine;
 
-const TextInput = ({ icon, placeholder }: TextInputProps) => {
-  const [state, setState] = useState<InputState>(Pristine);
-  const color =
-    state === Pristine ? "darkGrey" : state === Valid ? "primary" : "danger";
+const TextInput = ({ icon, touched, error, ...props }: TextInputProps) => {
+  // eslint-disable-next-line no-nested-ternary
+  const reColor = !touched ? "text" : error ? "danger" : "primary";
+  const color = theme.colors[reColor];
   return (
     <Box
       flexDirection="row"
       height={48}
-      borderRadius="s"
-      borderColor={color}
-      borderWidth={1}
       alignItems="center"
+      borderRadius="s"
+      borderWidth={StyleSheet.hairlineWidth}
+      borderColor={reColor}
+      padding="s"
     >
       <Box padding="s">
         <Icon name={icon} size={16} {...{ color }} />
       </Box>
-      <RNTextInput
-        underlineColorAndroid="transparent"
-        placeholderTextColor="#151624"
-        {...{ placeholder }}
-      />
-      {(state === Valid || state === Invalid) && (
-        <Box height={SIZE} width={SIZE} borderRadius="m">
-          <Icon
-            name={state === Valid ? "check" : "x"}
-            color="white"
-            size={16}
-          />
+      <Box flex={1}>
+        <RNTextInput
+          underlineColorAndroid="transparent"
+          placeholderTextColor={color}
+          {...props}
+        />
+      </Box>
+      {touched && (
+        <Box
+          height={SIZE}
+          width={SIZE}
+          borderRadius="m"
+          justifyContent="center"
+          alignItems="center"
+          backgroundColor={!error ? "primary" : "danger"}
+        >
+          <Icon name={!error ? "check" : "x"} color="white" size={16} />
         </Box>
       )}
     </Box>
