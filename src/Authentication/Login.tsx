@@ -2,12 +2,13 @@ import React, { useRef } from "react";
 import { TextInput as RNTextInput } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 import { Container, Button, Text, Box } from "../components";
 import { Routes, StackNavigationProps } from "../components/Navigation";
+import TextInput from "../components/Forms/TextInput";
+import Checkbox from "../components/Forms/Checkbox";
 
-import TextInput from "./components/Forms/TextInput";
-import Checkbox from "./components/Forms/Checkbox";
 import Footer from "./components/Footer";
 
 const LoginSchema = Yup.object().shape({
@@ -41,7 +42,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
     />
   );
   return (
-    <Container {...{ footer }}>
+    <Container pattern={0} {...{ footer }}>
       <Box padding="xl">
         <Text variant="title1" textAlign="center" marginBottom="l">
           Welcome back
@@ -80,18 +81,24 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
             onSubmitEditing={() => handleSubmit()}
             secureTextEntry
           />
-          <Box flexDirection="row" justifyContent="space-between">
+          <Box
+            flexDirection="row"
+            justifyContent="space-between"
+            alignItems="center"
+            marginVertical="m"
+          >
             <Checkbox
               label="Remember me"
               checked={values.remember}
               onChange={() => setFieldValue("remember", !values.remember)}
             />
-            <Button
-              variant="transparent"
+            <BorderlessButton
               onPress={() => navigation.navigate("ForgotPassword")}
             >
-              <Text color="primary">Forgot password</Text>
-            </Button>
+              <Text variant="button" color="primary">
+                Forgot password
+              </Text>
+            </BorderlessButton>
           </Box>
           <Box alignItems="center" marginTop="m">
             <Button

@@ -5,8 +5,8 @@ import * as Yup from "yup";
 
 import { Container, Button, Text, Box } from "../components";
 import { Routes, StackNavigationProps } from "../components/Navigation";
+import TextInput from "../components/Forms/TextInput";
 
-import TextInput from "./components/Forms/TextInput";
 import Footer from "./components/Footer";
 
 const SignUpSchema = Yup.object().shape({
@@ -43,7 +43,7 @@ const SignUp = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
     />
   );
   return (
-    <Container {...{ footer }}>
+    <Container pattern={1} {...{ footer }}>
       <Box padding="xl">
         <Text variant="title1" textAlign="center" marginBottom="l">
           Create account

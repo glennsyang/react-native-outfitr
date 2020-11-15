@@ -5,15 +5,11 @@ import * as Yup from "yup";
 
 import { Container, Button, Text, Box } from "../components";
 import { Routes, StackNavigationProps } from "../components/Navigation";
+import TextInput from "../components/Forms/TextInput";
 
-import TextInput from "./components/Forms/TextInput";
 import Footer from "./components/Footer";
 
 const ForgotPasswordSchema = Yup.object().shape({
-  password: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
 });
 
@@ -24,7 +20,7 @@ const ForgotPassword = ({
     {
       validationSchema: ForgotPasswordSchema,
       initialValues: { email: "" },
-      onSubmit: (values) => console.log(values),
+      onSubmit: () => navigation.navigate("PasswordChanged"),
     }
   );
   const footer = (
@@ -35,7 +31,7 @@ const ForgotPassword = ({
     />
   );
   return (
-    <Container {...{ footer }}>
+    <Container pattern={2} {...{ footer }}>
       <Box padding="xl" justifyContent="center" flex={1}>
         <Text variant="title1" textAlign="center" marginBottom="l">
           Forgot password?
