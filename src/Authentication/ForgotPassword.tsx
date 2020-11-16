@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { Container, Button, Text, Box } from "../components";
-import { Routes, StackNavigationProps } from "../components/Navigation";
+import { AuthNavigationProps } from "../components/Navigation";
 import TextInput from "../components/Forms/TextInput";
 
 import Footer from "./components/Footer";
@@ -15,7 +15,7 @@ const ForgotPasswordSchema = Yup.object().shape({
 
 const ForgotPassword = ({
   navigation,
-}: StackNavigationProps<Routes, "ForgotPassword">) => {
+}: AuthNavigationProps<"ForgotPassword">) => {
   const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik(
     {
       validationSchema: ForgotPasswordSchema,
@@ -32,36 +32,34 @@ const ForgotPassword = ({
   );
   return (
     <Container pattern={2} {...{ footer }}>
-      <Box padding="xl" justifyContent="center" flex={1}>
-        <Text variant="title1" textAlign="center" marginBottom="l">
-          Forgot password?
-        </Text>
-        <Text variant="body" textAlign="center" marginBottom="l">
-          Enter the email address associated with your account
-        </Text>
-        <Box>
-          <Box marginBottom="m">
-            <TextInput
-              icon="mail"
-              placeholder="Enter your Email"
-              onChangeText={handleChange("email")}
-              onBlur={handleBlur("email")}
-              error={errors.email}
-              touched={touched.email}
-              autoCapitalize="none"
-              autoCompleteType="email"
-              returnKeyType="go"
-              returnKeyLabel="go"
-              onSubmitEditing={() => handleSubmit()}
-            />
-          </Box>
-          <Box alignItems="center" marginTop="m">
-            <Button
-              variant="primary"
-              onPress={handleSubmit}
-              label="Reset password"
-            />
-          </Box>
+      <Text variant="title1" textAlign="center" marginBottom="l">
+        Forgot password?
+      </Text>
+      <Text variant="body" textAlign="center" marginBottom="l">
+        Enter the email address associated with your account
+      </Text>
+      <Box>
+        <Box marginBottom="m">
+          <TextInput
+            icon="mail"
+            placeholder="Enter your Email"
+            onChangeText={handleChange("email")}
+            onBlur={handleBlur("email")}
+            error={errors.email}
+            touched={touched.email}
+            autoCapitalize="none"
+            autoCompleteType="email"
+            returnKeyType="go"
+            returnKeyLabel="go"
+            onSubmitEditing={() => handleSubmit()}
+          />
+        </Box>
+        <Box alignItems="center" marginTop="m">
+          <Button
+            variant="primary"
+            onPress={handleSubmit}
+            label="Reset password"
+          />
         </Box>
       </Box>
     </Container>

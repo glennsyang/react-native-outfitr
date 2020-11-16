@@ -14,6 +14,7 @@ export const assets = [
 const { width, height: wHeight } = Dimensions.get("window");
 const aspectRatio = 750 / 1125;
 const height = width * aspectRatio;
+
 interface ContainerProps {
   children: ReactNode;
   footer: ReactNode;
@@ -63,6 +64,8 @@ const Container = ({ children, footer, pattern }: ContainerProps) => {
             borderTopLeftRadius={0}
             backgroundColor="white"
             flex={1}
+            justifyContent="center"
+            padding="xl"
           >
             {children}
           </Box>

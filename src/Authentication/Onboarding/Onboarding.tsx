@@ -11,7 +11,7 @@ import {
   useScrollHandler,
 } from "react-native-redash/lib/module/v1";
 
-import { Routes, StackNavigationProps } from "../../components/Navigation";
+import { AuthNavigationProps } from "../../components/Navigation";
 import { useTheme } from "../../components";
 import { Theme, makeStyles } from "../../components/Theme";
 
@@ -106,9 +106,7 @@ const slides = [
 ];
 export const assets = slides.map((slide) => slide.picture.src);
 
-const Onboarding = ({
-  navigation,
-}: StackNavigationProps<Routes, "Onboarding">) => {
+const Onboarding = ({ navigation }: AuthNavigationProps<"Onboarding">) => {
   const styles = useStyles();
   const theme = useTheme();
   const scroll = useRef<Animated.ScrollView>(null);
