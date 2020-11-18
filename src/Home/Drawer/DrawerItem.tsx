@@ -12,7 +12,6 @@ export interface DrawerItemProps {
 }
 
 const DrawerItem = ({ icon, color, screen, label }: DrawerItemProps) => {
-  console.log({ screen });
   const theme = useTheme();
   return (
     <RectButton style={{ borderRadius: theme.borderRadii.m }}>
