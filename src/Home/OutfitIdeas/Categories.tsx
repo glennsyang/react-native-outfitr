@@ -7,7 +7,7 @@ const categories = [
   {
     id: "newin",
     title: "New In",
-    color: "#FFE8E9",
+    color: "#FBB8E9",
   },
   {
     id: "summer",
