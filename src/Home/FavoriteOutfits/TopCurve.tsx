@@ -18,10 +18,10 @@ const TopCurve = ({ footerHeight }: TopCurveProps) => {
         position: "absolute",
         bottom: footerHeight,
         right: 0,
-        backgroundColor: "rgba(100, 200, 300, 0.5)",
       }}
+      viewBox="0 0 1 1"
     >
-      <Path d="" fill={theme.colors.secondary} />
+      <Path d="M 0 1 A 0 0, 0, 0, 0, 1 0 L 1 1" fill={theme.colors.secondary} />
     </Svg>
   );
 };
