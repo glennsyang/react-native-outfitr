@@ -1,45 +1,31 @@
 import React from "react";
+import { ScrollView } from "react-native-gesture-handler";
 
 import { Box, Header, Text } from "../../components";
 import { HomeNavigationProps } from "../../components/Navigation";
 
-import Graph, { DataPoint } from "./Graph";
-
+import Graph, { DataPoint } from "./Graph/Graph";
+import Transaction from "./Transaction";
+const startDate = new Date("2019-09-01").getTime();
+const numberOfMonths = 6;
 const data: DataPoint[] = [
   {
-    date: new Date("2019-09-01").getTime(),
-    value: 0,
-    color: "primary",
-  },
-  {
     date: new Date("2019-10-01").getTime(),
-    value: 0,
-    color: "primary",
-  },
-  {
-    date: new Date("2019-11-01").getTime(),
     value: 139.42,
     color: "primary",
+    id: 245672,
   },
   {
     date: new Date("2019-12-01").getTime(),
-    value: 218.23,
+    value: 281.23,
     color: "orange",
-  },
-  {
-    date: new Date("2020-01-01").getTime(),
-    value: 0,
-    color: "orange",
+    id: 245673,
   },
   {
     date: new Date("2020-02-01").getTime(),
     value: 198.54,
     color: "yellow",
-  },
-  {
-    date: new Date("2020-03-01").getTime(),
-    value: 0,
-    color: "yellow",
+    id: 245674,
   },
 ];
 
@@ -53,7 +39,7 @@ const TransactionHistory = ({
         right={{ icon: "share", onPress: () => true }}
         title="Transaction History"
       />
-      <Box padding="m">
+      <Box padding="m" flex={1}>
         <Box
           flexDirection="row"
           justifyContent="space-between"
@@ -65,11 +51,20 @@ const TransactionHistory = ({
             </Text>
             <Text variant="title1">$619,19</Text>
           </Box>
-          <Box backgroundColor="primaryLight" borderRadius="l" padding="m">
+          <Box backgroundColor="primaryLight" borderRadius="m" padding="s">
             <Text color="primary">All Time</Text>
           </Box>
         </Box>
-        <Graph data={data} />
+        <Graph
+          data={data}
+          startDate={startDate}
+          numberOfMonths={numberOfMonths}
+        />
+        <ScrollView>
+          {data.map((transaction) => (
+            <Transaction key={transaction.id} transaction={transaction} />
+          ))}
+        </ScrollView>
       </Box>
     </Box>
   );

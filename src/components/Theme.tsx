@@ -15,6 +15,7 @@ export const theme = {
     white: "white",
     grey: "#F4F0EF",
     lightGrey: "#FAFAFA",
+    darkGrey: "#808080",
     primaryLight: "#E7F9F7",
     orange: "#FE5E33",
     yellow: "#FFC641",
@@ -51,6 +52,11 @@ export const theme = {
     title2: {
       fontSize: 24,
       lineHeight: 30,
+      fontFamily: "SFProDisplay-Semibold",
+      color: "secondary",
+    },
+    title3: {
+      fontSize: 16,
       fontFamily: "SFProDisplay-Semibold",
       color: "secondary",
     },
