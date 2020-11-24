@@ -1,4 +1,8 @@
-import { DrawerActions, useNavigation } from "@react-navigation/native";
+import {
+  CommonActions,
+  DrawerActions,
+  useNavigation,
+} from "@react-navigation/native";
 import React from "react";
 import { Dimensions, Image } from "react-native";
 
@@ -45,7 +49,13 @@ const items: DrawerItemProps[] = [
   {
     icon: "log-out",
     label: "Logout",
-    screen: "FavoriteOutfits",
+    onPress: (navigation) =>
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{ name: "Authentication" }],
+        })
+      ),
     color: "secondary",
   },
 ];
@@ -55,7 +65,7 @@ const Drawer = () => {
   const theme = useTheme();
   return (
     <Box flex={1}>
-      <Box flex={0.2} backgroundColor="white">
+      <Box flex={0.2} backgroundColor="background">
         <Box
           position="absolute"
           top={0}
@@ -87,7 +97,7 @@ const Drawer = () => {
           right={0}
           left={0}
           bottom={0}
-          backgroundColor="white"
+          backgroundColor="background"
           borderTopLeftRadius="xl"
           borderBottomRightRadius="xl"
           justifyContent="center"
@@ -116,7 +126,7 @@ const Drawer = () => {
         </Box>
       </Box>
       <Box
-        backgroundColor="white"
+        backgroundColor="background"
         width={DRAWER_WIDTH}
         height={height * 0.61}
         overflow="hidden"
