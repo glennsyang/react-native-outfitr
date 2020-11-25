@@ -8,26 +8,32 @@ import {
 } from "@shopify/restyle";
 
 export const palette = {
+  green: "#2CB9B0",
   white: "white",
+  orange: "#FE5E33",
+  yellow: "#FFC641",
+  pink: "#FF87A2",
+  violet: "#442CB9",
+  lightBlue: "#BFEAF5",
 };
 
 export const theme = {
   colors: {
-    primary: "#2CB9B0",
+    primary: palette.green,
+    primaryLight: "#E7F9F7",
     secondary: "#0C0D34",
     danger: "#F00558",
+    info: "#808080",
     title: "#0C0D34",
     text: "rgba(12, 13, 52, 0.7)",
     background: palette.white,
-    grey: "#F4F0EF",
-    lightGrey: "#FAFAFA",
-    darkGrey: "#808080",
-    primaryLight: "#E7F9F7",
-    orange: "#FE5E33",
-    yellow: "#FFC641",
-    pink: "#FF87A2",
-    violet: "#442CB9",
-    lightBlue: "#BFEAF5",
+    background2: "#F4F0EF",
+    graph1: palette.orange,
+    graph2: palette.yellow,
+    drawer1: palette.orange,
+    drawer2: palette.yellow,
+    drawer3: palette.pink,
+    drawer4: palette.violet,
   },
   spacing: {
     s: 8,
@@ -41,7 +47,10 @@ export const theme = {
     l: 25,
     xl: 75,
   },
-  breakpoints: {},
+  breakpoints: {
+    phone: 0,
+    tablet: 768,
+  },
   textVariants: {
     hero: {
       fontSize: 80,

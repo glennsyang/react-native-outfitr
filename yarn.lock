@@ -1349,10 +1349,10 @@
     color "^3.1.2"
     react-native-iphone-x-helper "^1.2.1"
 
-"@shopify/restyle@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@shopify/restyle/-/restyle-1.3.0.tgz#bbd3e213c385618a2c9744282048019e19b8e0d8"
-  integrity sha512-GSKXmTcUFhejz6Jjm0N1vUN1xp5kKn43J/Zoky9QeWmdDGNQYaeNrs5ddd/n+HEdahBv7tPJJlRsuM5v2utL4g==
+"@shopify/restyle@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@shopify/restyle/-/restyle-1.3.1.tgz#0b45c10939dc2bbc796e65fad1ab1712aee24ecf"
+  integrity sha512-hSwJ/nMeMHain8WLyYuxiIhLi12Jf8KmMXJZzKf6xBhM62gdcGSmNUoW0Z8KkLaX+Ykk+8exPQ1UNXkGIhAWFA==
 
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
