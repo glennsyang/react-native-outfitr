@@ -31,7 +31,7 @@ const items: DrawerItemProps[] = [
   {
     icon: "user",
     label: "Edit Profile",
-    screen: "FavoriteOutfits",
+    screen: "EditProfile",
     color: "drawer2",
   },
   {
@@ -43,7 +43,7 @@ const items: DrawerItemProps[] = [
   {
     icon: "settings",
     label: "Notification Settings",
-    screen: "FavoriteOutfits",
+    screen: "Settings",
     color: "drawer4",
   },
   {
