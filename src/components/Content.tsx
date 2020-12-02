@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, Image, StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, View, Image } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
 import { useTheme } from "./Theme";
@@ -11,7 +11,6 @@ const viewBox = {
 };
 const height = (100 * width) / viewBox.width;
 const d = "M 0 0 H 375 A 50 50 0 0 1 325 50 H 50 A 50 50 0 0 0 0 100";
-
 const styles = StyleSheet.create({
   background: {
     ...StyleSheet.absoluteFillObject,
@@ -22,7 +21,6 @@ const styles = StyleSheet.create({
     height: (width * 750) / 1125,
   },
 });
-
 interface ContentFooterProps {
   children: React.ReactNode;
 }

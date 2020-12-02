@@ -2,7 +2,13 @@ import React from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
-import { Box, Content, Header, makeStyles, Text } from "../../components";
+import {
+  Box,
+  ScrollableContent,
+  Header,
+  makeStyles,
+  Text,
+} from "../../components";
 import { HomeNavigationProps } from "../../components/Navigation";
 import { Theme } from "../../components/Theme";
 
@@ -49,7 +55,7 @@ const TransactionHistory = ({
 }: HomeNavigationProps<"TransactionHistory">) => {
   const styles = useStyles();
   return (
-    <Content>
+    <ScrollableContent>
       <Box flex={1} backgroundColor="background">
         <Header
           left={{ icon: "menu", onPress: () => navigation.openDrawer() }}
@@ -87,7 +93,7 @@ const TransactionHistory = ({
           </ScrollView>
         </Box>
       </Box>
-    </Content>
+    </ScrollableContent>
   );
 };
 
